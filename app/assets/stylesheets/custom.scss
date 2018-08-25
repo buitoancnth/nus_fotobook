@@ -1,0 +1,35 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* header */
+.logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 9px;
+  font-weight: bold;
+}
+.logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* body */
+
+.main-feed {
+	margin-top: 50px;
+}
+/* form */
+.btn-primary {
+	margin-top: 10px;
+}
+.checkbox {
+  margin-left: 20px;
+  span {
+    font-weight: normal;
+  }
+}
+
+
