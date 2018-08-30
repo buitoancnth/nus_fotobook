@@ -16,7 +16,6 @@ $(document).ready(function(){
         required: true,
         email: true,
         maxlength: 255,
-        uniqueness: true
       },
       "user[password]": {
         required: true,
@@ -41,7 +40,6 @@ $(document).ready(function(){
         required: "(is required)",
         email: "(Please enter a valid email address)",
         maxlength: "(must less than 255 characters)",
-        uniqueness: "(must be unique)"
       },
       "user[password]": {
         required: "(is required)",

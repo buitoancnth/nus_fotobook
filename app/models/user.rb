@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def self.fullname(first_name,last_name)
-    first_name << ' ' << last_name
+  def fullname
+    "#{first_name} #{last_name}"
   end
 end
