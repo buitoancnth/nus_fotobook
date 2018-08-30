@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#new_user,#edit_user").validate({
+  $("#new_user, #edit_user").validate({
     errorPlacement: function (error, element) {
       error.insertBefore(element);
     },
