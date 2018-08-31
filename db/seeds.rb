@@ -16,10 +16,8 @@
     5.times do |n|
       title = Faker::Job.title
       description = Faker::Name.name
-      user.photos.create(title: title, description: description, share_mode: true)
+      user.photos.create!(title: title, description: description, share_mode: true)
     end
-  end
-  unless user.nil?
     5.times do |n|
       title = Faker::Job.title
       description = Faker::Name.name
@@ -27,7 +25,7 @@
       unless album.nil?
         5.times do |n|
           image = Faker::Avatar.image
-          album.images.create(image: image)
+          album.images.create!(image: image)
         end
       end
     end
