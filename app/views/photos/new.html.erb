@@ -1,0 +1,20 @@
+<h3 class="text-primary">New Photo</h3><hr>
+<%= form_for @photo do |f| %>
+  <% if @photo.errors.any? %>
+    <h3>Some errors were found:</h3>
+    <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :share_mode, 'Share mode' %><br>
+  <%= f.select :share_mode, [['Public', true], ['Private', false]], class: 'form-control' %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.submit %>
+<% end %>
