@@ -22,12 +22,6 @@
       title = Faker::Job.title
       description = Faker::Name.name
       album = user.albums.create!(title: title, description: description, share_mode: true)
-      unless album.nil?
-        5.times do |n|
-          image = Faker::Avatar.image
-          album.images.create!(image: image)
-        end
-      end
     end
   end
 end
