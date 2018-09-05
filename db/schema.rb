@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180825085522) do
+ActiveRecord::Schema.define(version: 20180831085542) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.boolean "share_mode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["title"], name: "index_albums_on_title"
+    t.index ["user_id"], name: "index_albums_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_images_on_album_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.boolean "share_mode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["title"], name: "index_photos_on_title"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
