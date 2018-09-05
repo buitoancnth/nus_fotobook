@@ -1,2 +1,4 @@
 <%= render 'photo', photos: @photos %>
-<center><%= paginate @photos %></center>
+<div class="paginate">
+  <%= paginate @photos %>
+</div>
