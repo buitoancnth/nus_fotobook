@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root 'feeds#index'
+  get '/my_photos', to: 'photos#my_photos', as: 'my_photos'
+  get '/my_albums', to: 'albums#my_albums', as: 'my_albums'
 
+  resources :albums
+  resources :photos
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :photos, only: :index
+    resources :albums, only: :index
+  end
 end

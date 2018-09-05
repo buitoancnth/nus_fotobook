@@ -4,12 +4,20 @@
     <title>NusFotobook</title>
     <%= render 'layouts/head_include' %>
   </head>
-
   <body>
-  	<%= render 'layouts/header' %>
-  	<div class="container main-feed">
-  		<%= yield %>
-  		<%= render 'layouts/footer' %>
-  	</div>
+    <%= render 'layouts/header' %>
+    <div class="container main-feed">
+      <% if user_signed_in? %>
+        <div class="row">
+          <%= render 'layouts/left_body' %>
+          <div class="col-sm-10 col-xs-12 photo_album">
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

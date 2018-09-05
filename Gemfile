@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem "jquery-validation-rails"
 gem 'faker'
 gem 'jquery-turbolinks'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

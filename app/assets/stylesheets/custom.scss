@@ -19,17 +19,40 @@
 	background-color: blue;
 }
 .nav > li > a {
-	color: #fff;
+	color: #000;
 }
 .nav > li > a:hover {
 	color: #000;
 }
-
+li.active a {
+  color: blue;
+}
 
 /* body */
+body {
+  background-color: rgba(0,0,0,.05);
+}
 .main-feed {
 	margin-top: 50px;
 }
+div > ul > li {
+  font-size: 18px;
+  margin: 3px;
+  cursor: pointer;
+  list-style-type: none;
+}
+div > ul > li:hover {
+  color: blue;
+  cursor: pointer;
+}
+.photo_album {
+  background-color: white;
+  margin-top: 10px;
+}
+.list-menu {
+  padding-top: 10px;
+}
+
 
 /* form */
 .btn-primary {
@@ -45,3 +68,104 @@
   color: red;
 }
 
+/* modal */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: normal;
+  font-size: 30px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.next {
+  right: 14px;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.post-image {
+  overflow: auto;
+  background-color: rgba(0,0,0,.05);
+  margin: 10px;
+  border-radius: 4px;
+}
+.post-date {
+  width: 70%;
+  float: right;
+}
+.pop {
+  float: left;
+  width: 50%;
+}
+.post-data {
+  float: right;
+  width: 50%;
+  padding: 5px;
+}
+.post-like {
+  width: 30%;
+  float: left;
+}
+.post-date {
+  width: 70%;
+  float: right;
+}
+.imagepreview {
+  width: 100%;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nav-pills > li {
+  margin-top: 5px;
+  float:none;
+  display:inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-pills {
+  text-align: center;
+}
+.container {
+  position: relative;
+}
+.image {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.caption {
+  position: absolute;
+  position: top;
+  margin-bottom: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.thumbnail {
+  position: relative;
+}
+.paginate{
+  text-align: center
+}
