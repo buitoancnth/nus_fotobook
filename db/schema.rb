@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180904081319) do
+ActiveRecord::Schema.define(version: 20180904072855) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
@@ -18,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180904081319) do
     t.boolean "share_mode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["title"], name: "index_albums_on_title"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
@@ -29,10 +32,10 @@ ActiveRecord::Schema.define(version: 20180904081319) do
     t.boolean "share_mode"
     t.string "image_file_name"
     t.string "image_content_type"
-    t.integer "image_file_size", limit: 8
+    t.bigint "image_file_size"
     t.datetime "image_updated_at"
-    t.integer "user_id"
-    t.integer "album_id", default: 0
+    t.bigint "user_id"
+    t.integer "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_photos_on_album_id"
@@ -60,4 +63,7 @@ ActiveRecord::Schema.define(version: 20180904081319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "albums", "users"
+  add_foreign_key "photos", "albums"
+  add_foreign_key "photos", "users"
 end

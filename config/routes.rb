@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect("/users/sign_in")
+  root to: "feeds#index"
   get '/my_photos', to: 'photos#my_photos', as: 'my_photos'
   get '/my_albums', to: 'albums#my_albums', as: 'my_albums'
 
