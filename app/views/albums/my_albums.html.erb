@@ -1,3 +1,8 @@
-<%= link_to '<button type="button" class="btn-primary">Add Album</button>'.html_safe, new_album_path%><hr>
+<%= link_to new_album_path do %>
+  <button type="button" class="btn btn-primary">Add Album</button>
+<% end %>
+<hr>
 <%= render 'album', albums: @albums %>
-<center><%= paginate @albums %></center>
+<div class="paginate">
+  <%= paginate @albums %>
+</div>

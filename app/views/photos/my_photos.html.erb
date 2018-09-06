@@ -1,4 +1,6 @@
-<%= button_to "Add Photo", { action: "new" }, method: :get, class: 'btn-primary upload' %>
+<%= link_to new_photo_path do %>
+  <button type="button" class="btn btn-primary">Add Photo</button>
+<% end %>
 <hr>
 <div class="row">
   <div class="col-md-3 container">

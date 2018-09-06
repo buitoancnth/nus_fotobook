@@ -26,7 +26,6 @@ class PhotosController < ApplicationController
 
   def my_photos
     @photos = current_user.photos.page params[:page]
-    # render :index
   end
 
   private

@@ -1,4 +1,5 @@
-<h3 class="text-primary">New Album</h3><hr>
+<h3 class="text-primary">New Album</h3>
+<hr>
 <%= form_for @album, html: { multipart: true } do |f| %>
   <% if @album.errors.any? %>
     <h3>Some errors were found:</h3>
@@ -8,13 +9,21 @@
       <% end %>
     </ul>
   <% end %>
-  <%= f.label :title %>
-  <%= f.text_field :title, class: 'form-control' %>
-  <%= f.label :share_mode, 'Share mode' %><br>
-  <%= f.select :share_mode, [['Public', true], ['Private', false]], class: 'form-control' %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description, class: 'form-control' %>
-  <%= f.label :photos %>
-  <%= file_field_tag "images[]", type: :file, multiple: true %>
-  <%= f.submit nil, class: 'btn-primary'%>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :share_mode, 'Share mode' %>
+    <%= f.select :share_mode, [['Public', true], ['Private', false]], {}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :photos %>
+    <%= f.file_field :images, multiple: true, class: 'form-control' %>
+  </div>
+  <%= f.submit :Create, class: 'btn btn-primary'%>
 <% end %>
