@@ -1,0 +1,20 @@
+<h3 class="text-primary">New Album</h3><hr>
+<%= form_for @album, html: { multipart: true } do |f| %>
+  <% if @album.errors.any? %>
+    <h3>Some errors were found:</h3>
+    <ul>
+      <% @album.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :share_mode, 'Share mode' %><br>
+  <%= f.select :share_mode, [['Public', true], ['Private', false]], class: 'form-control' %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+  <%= f.label :photos %>
+  <%= file_field_tag "images[]", type: :file, multiple: true %>
+  <%= f.submit nil, class: 'btn-primary'%>
+<% end %>
