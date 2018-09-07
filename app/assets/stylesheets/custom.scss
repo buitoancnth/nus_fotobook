@@ -8,7 +8,7 @@
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
-  align-content: center;
+  text-align: center;
   font-weight: bold;
 }
 .logo:hover {
@@ -16,10 +16,10 @@
   text-decoration: none;
 }
 .nav > li.dropdown > a {
-	color: #fff;
+  color: #fff;
 }
 .nav > li.dropdown > a:hover {
-	color: blue;
+  color: blue;
 }
 .nav > li.dropdown > ul > li > a {
   color: #000;
@@ -50,7 +50,7 @@ body {
   background-color: rgba(0,0,0,.05);
 }
 .main-feed {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 .photo_album {
   background-color: white;
@@ -67,7 +67,7 @@ li a{
 
 /* form */
 .btn-primary {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 .checkbox {
   margin-left: 20px;
@@ -201,36 +201,29 @@ div.caption {
   font-size: 12px;
   text-align: center;
   width: 100%;
-  display: inline;
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+  }
+  span {
+    position: absolute;
+    left: 90%;
+    top: 20%;
+  }
+  span:hover {
+    color: red;
+  }
 }
-div.caption p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 80%;
-}
-div.caption span {
-  position: absolute;
-  font-size: 18px;
-  left: 90%;
-  bottom: 10%;
-}
-div.thumbnail i {
+div.thumbnail > span {
   position: absolute;
   top: 75%;
   left: 84%;
-}
-i {
   background-color: white;
   border-radius: 50%;
   border: 1x solid grey;
   padding: 7px 10px;
-}
-i:hover {
-  background: #c13b2a;
-  color: #ffffff;
-  transition: all .2s ease;
-  cursor: pointer;
 }
 .paginate{
   text-align: center

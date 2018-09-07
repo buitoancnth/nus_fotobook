@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   layout 'layout_album_photo', only: :index
-  before_action :load_image, only: :create
+  before_action :check_image, only: :create
 
   def index
     @albums = Album.page params[:page]
@@ -37,7 +37,7 @@ class AlbumsController < ApplicationController
     params.require(:album).permit(:title, :description, :share_mode, :photos)
   end
 
-  def load_image
+  def check_image
     @images = params[:album][:images]
     return if @images
     redirect_to new_album_path
