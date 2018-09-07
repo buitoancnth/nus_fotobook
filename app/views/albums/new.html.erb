@@ -1,14 +1,7 @@
-<h3 class="text-primary">New Album</h3>
+<h3 class="text-primary"><%= t('.new_album') %></h3>
 <hr>
 <%= form_for @album, html: { multipart: true } do |f| %>
-  <% if @album.errors.any? %>
-    <h3>Some errors were found:</h3>
-    <ul>
-      <% @album.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'shared/error_messages', object: @album %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -25,5 +18,5 @@
     <%= f.label :photos %>
     <%= f.file_field :images, multiple: true, class: 'form-control' %>
   </div>
-  <%= f.submit :Create, class: 'btn btn-primary'%>
+  <%= f.submit t('.btn_create_album'), class: 'btn btn-primary'%>
 <% end %>

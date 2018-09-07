@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require jquery-fileupload
 //= require_tree .

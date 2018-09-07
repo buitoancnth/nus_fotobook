@@ -30,4 +30,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  devise:
+    sessions:
+      new:
+        sign_in: "FotoBook Login"
+        remember_me: "Remember me on this computer"
+        btn_login: "Login"
+        email: "Email"
+        password: "Password"
+    registrations:
+      new:
+        sign_up: "FotoBook Signup"
+        btn_signup: "Signup"
+        email: "Email"
+        first_name: "First name"
+        last_name: "Last name"
+        password: "Password"
+        password_confirm: "Password Confirmation"
+        character_min: "characters minimum"
+  albums:
+    my_albums:
+      add_album: "Add Album"
+    new:
+      new_album: "New Album"
+      btn_create_album: "Create Album"
+  photos:
+    my_photos:
+      add_photo: "Add Photo"
+    new:
+      new_photo: "New Photo"
+      btn_create_photo: "Create Photo"
+
+

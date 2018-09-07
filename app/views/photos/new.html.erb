@@ -1,14 +1,7 @@
-<h3 class="text-primary">New Photo</h3>
+<h3 class="text-primary"><%= t('.new_photo') %></h3>
 <hr>
 <%= form_for @photo do |f| %>
-  <% if @photo.errors.any? %>
-    <h3>Some errors were found:</h3>
-    <ul>
-      <% @photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'shared/error_messages', object: @photo %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -25,5 +18,5 @@
     <%= f.label :image %>
     <%= f.file_field :image, class: 'form-control' %>
   </div>
-  <%= f.submit :Create, class: 'btn btn-primary'%>
+  <%= f.submit t('.btn_create_photo'), class: 'btn btn-primary'%>
 <% end %>

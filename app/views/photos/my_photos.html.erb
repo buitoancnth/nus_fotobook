@@ -1,12 +1,58 @@
-<%= link_to new_photo_path do %>
-  <button type="button" class="btn btn-primary">Add Photo</button>
-<% end %>
+<div class="add_photo_album">
+  <%= link_to new_photo_path do %>
+    <button type="button" class="btn btn-primary"><%= t('.add_photo') %></button>
+  <% end %>
+</div>
 <hr>
 <div class="row">
-  <div class="col-md-3 container">
-    <div class="caption">
-      <span class="glyphicon glyphicon-edit"></span>
+  <div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="thumbnail">
+      <%= image_tag("image2.jpg", class: 'img-responsive') %>
+      <div class="caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+        <span class="glyphicon glyphicon-edit"></span>
+      </div>
+      <i class = "fa fa-lock"></i>
     </div>
-    <%= image_tag("image2.jpg", class: 'image') %>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="thumbnail">
+      <%= image_tag("image2.jpg", class: 'img-responsive') %>
+      <div class="caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+        <span class="glyphicon glyphicon-edit"></span>
+      </div>
+      <i class = "fa fa-lock"></i>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="thumbnail">
+      <%= image_tag("image2.jpg", class: 'img-responsive') %>
+      <div class="caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+        <span class="glyphicon glyphicon-edit"></span>
+      </div>
+      <i class = "fa fa-lock"></i>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="thumbnail">
+      <%= image_tag("image2.jpg", class: 'img-responsive') %>
+      <div class="caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+        <span class="glyphicon glyphicon-edit"></span>
+      </div>
+      <i class = "fa fa-lock"></i>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="thumbnail">
+      <%= image_tag("image2.jpg", class: 'img-responsive') %>
+      <div class="caption">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+        <span class="glyphicon glyphicon-edit"></span>
+      </div>
+      <i class = "fa fa-lock"></i>
+    </div>
   </div>
 </div>
