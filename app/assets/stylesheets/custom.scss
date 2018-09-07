@@ -109,45 +109,71 @@ li a{
   margin: 10px;
   border-radius: 4px;
   box-shadow: 8px 8px 3px grey;
-}
-.post-date {
-  width: 70%;
-  float: right;
+  height: 200px;
 }
 .pop {
   float: left;
   width: 50%;
 }
+.pop img {
+  display: block;
+  margin: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+.post-name {
+  width: auto;
+  display:inline
+}
+.post-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 80%;
+}
 .post-data {
+  position: relative;
   float: right;
   width: 50%;
   padding: 5px;
+  height: 100%;
+}
+.post-meta {
+  height: 50%;
+  width: auto;
 }
 .post-like {
-  width: 30%;
-  float: left;
+  position: absolute;
+  top: 182px;
+  left: 1px;
 }
 .post-date {
-  width: 70%;
-  float: right;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+}
+.number-like {
+  position: absolute;
+  bottom: 1px;
+  left: 18px;
+}
+.post-title {
+  font-weight:bold;
 }
 .imagepreview {
   width: 100%;
 }
 .avatar {
-  vertical-align: middle;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 50px;
 }
-
 .nav-pills > li {
   margin-top: 5px;
   float:none;
   display:inline-block;
   background-color: rgba(0, 0, 0, 0.2);
 }
-
 .nav-pills {
   text-align: center;
 }
@@ -177,7 +203,6 @@ div.caption {
   width: 100%;
   display: inline;
 }
-
 div.caption p {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -200,6 +225,12 @@ i {
   border-radius: 50%;
   border: 1x solid grey;
   padding: 7px 10px;
+}
+i:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
 }
 .paginate{
   text-align: center
@@ -227,4 +258,73 @@ i {
 }
 .add_photo_album {
   text-align: right;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  height: 150px;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.drag-text {
+  position: absolute;
+  display: block;
+  left: 47%;
+  top: 47%;
+}
+.file-upload-content {
+  display: none;
+  text-align: left;
+  position: relative;
+  height: 150px;
+}
+
+.file-upload-image {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.delete-image {
+  position: absolute;
+  left: 115px;
+}
+.remove-image {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+.hide {
+  display: none;
 }

@@ -15,8 +15,17 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :image %>
     <%= f.file_field :image, class: 'form-control' %>
+  </div>
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' id="click_id" accept="image/*" />
+    <div class="drag-text">
+      +
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" height="150px" width="150px" />
+    <i class=" glyphicon glyphicon-remove delete-image" id="remove-image"></i>
   </div>
   <%= f.submit t('.btn_create_photo'), class: 'btn btn-primary'%>
 <% end %>
