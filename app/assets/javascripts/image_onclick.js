@@ -67,5 +67,9 @@ $(document).on('turbolinks:load', function(){
       $('h6.modal-description').text($(this).find('h6.description-hidden').text());
       $('#imagemodal').modal('show');
     });
+
+    $('.thumbnail-photo.glyphicon-edit').on('click', function(){
+      $('#imagemodal').modal('hide');
+    });
   });
 });
