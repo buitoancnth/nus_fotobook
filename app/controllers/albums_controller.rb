@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
     @album = current_user.albums.new album_params
     if @album.save
       @images.each do |image|
-        @album.photos.create(image: image)
+        @album.photos.create!(image: image)
       end
       redirect_to albums_path
     else

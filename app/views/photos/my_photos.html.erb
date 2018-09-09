@@ -5,54 +5,23 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col-lg-3 col-md-4 col-xs-12">
-    <div class="thumbnail">
-      <%= image_tag("image2.jpg", class: 'img-responsive') %>
-      <div class="caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
-        <span class="glyphicon glyphicon-edit"></span>
+  <% @photos.each_with_index do |photo, index| %>
+    <div class="col-lg-3 col-md-4 col-xs-12">
+      <div class="thumbnail">
+        <%= image_tag(photo.image.url, class: 'img-responsive') %>
+        <div class="caption">
+          <p><%= photo.title %></p>
+          <%= link_to edit_photo_path(photo) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+        </div>
+        <% unless photo.share_mode %>
+          <span class = "fa fa-lock"></span>
+        <% end %>
       </div>
-      <i class = "fa fa-lock"></i>
     </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-xs-12">
-    <div class="thumbnail">
-      <%= image_tag("image2.jpg", class: 'img-responsive') %>
-      <div class="caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
-        <span class="glyphicon glyphicon-edit"></span>
-      </div>
-      <i class = "fa fa-lock"></i>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-xs-12">
-    <div class="thumbnail">
-      <%= image_tag("image2.jpg", class: 'img-responsive') %>
-      <div class="caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
-        <span class="glyphicon glyphicon-edit"></span>
-      </div>
-      <i class = "fa fa-lock"></i>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-xs-12">
-    <div class="thumbnail">
-      <%= image_tag("image2.jpg", class: 'img-responsive') %>
-      <div class="caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
-        <span class="glyphicon glyphicon-edit"></span>
-      </div>
-      <i class = "fa fa-lock"></i>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-4 col-xs-12">
-    <div class="thumbnail">
-      <%= image_tag("image2.jpg", class: 'img-responsive') %>
-      <div class="caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
-        <span class="glyphicon glyphicon-edit"></span>
-      </div>
-      <i class = "fa fa-lock"></i>
-    </div>
-  </div>
+    <% if index == 3 %>
+      </div><div class="row">
+    <% end %>
+  <% end %>
 </div>

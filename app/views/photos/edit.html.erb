@@ -1,0 +1,10 @@
+<h3 class="text-primary"><%= t('.title_photo') %></h3>
+<hr>
+<%= form_for @photo do |f| %>
+  <%= render 'shared/error_messages', object: @photo %>
+  <%= render 'form', f: f%>
+  <%= f.submit t('.btn_photo'), class: 'btn btn-success'%>
+  <%= link_to photo_path(@photo), method: :delete, data: {confirm: t('t.are_you_sure')} do %>
+    <button type="button" class="btn btn-danger"><%= t('.btn_photo_delete') %></button>
+  <% end %>
+<% end %>

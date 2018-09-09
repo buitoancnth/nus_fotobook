@@ -58,7 +58,12 @@ en:
     my_photos:
       add_photo: "Add Photo"
     new:
-      new_photo: "New Photo"
-      btn_create_photo: "Create Photo"
+      title_photo: "New Photo"
+      btn_photo: "Create Photo"
+    edit:
+      title_photo: "Update"
+      btn_photo: "Save"
+      btn_photo_delete: "delete"
+      are_you_sure: "are you sure ?"
 
 

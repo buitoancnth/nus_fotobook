@@ -55,6 +55,7 @@ body {
 .photo_album {
   background-color: white;
   margin-top: 10px;
+  padding-bottom: 10px;
   border-radius: 10px;
 }
 .list-menu {
@@ -63,7 +64,6 @@ body {
 li a{
   color: #000;
 }
-
 
 /* form */
 .btn-primary {
@@ -199,18 +199,19 @@ div.caption {
   opacity:1;
   color: white !important;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
   width: 100%;
   p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 80%;
+    width: 85%;
   }
   span {
     position: absolute;
-    left: 90%;
-    top: 20%;
+    right: 5px;
+    top: 5px;
+    font-size: 15px;
   }
   span:hover {
     color: red;
@@ -218,8 +219,8 @@ div.caption {
 }
 div.thumbnail > span {
   position: absolute;
-  top: 75%;
-  left: 84%;
+  bottom: 5px;
+  right: 5px;
   background-color: white;
   border-radius: 50%;
   border: 1x solid grey;
@@ -252,45 +253,54 @@ div.thumbnail > span {
 .add_photo_album {
   text-align: right;
 }
-
-.file-upload-input {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 150px;
-  height: 150px;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
+.album-upload {
+  height: auto;
 }
-
 .image-upload-wrap {
-  margin-top: 20px;
   position: relative;
+  display: block;
   width: 150px;
   height: 150px;
+  margin: 20px 5px 10px 0px;
   background-color: rgba(0, 0, 0, 0.5);
-}
-.drag-text {
-  position: absolute;
-  display: block;
-  left: 47%;
-  top: 47%;
+  input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    height: 150px;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  span {
+    position: absolute;
+    display: block;
+    left: 47%;
+    top: 47%;
+  }
 }
 .file-upload-content {
   display: none;
   text-align: left;
   position: relative;
   height: 150px;
+  width: 150px;
+  margin-bottom: 10px;
 }
-
 .file-upload-image {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .delete-image {
   position: absolute;
-  left: 115px;
+  right: 5px;
+  top: 5px;
+  background-color: white;
+  border-radius: 50%;
+}
+.delete-image:hover {
+  color: red;
 }
 .remove-image {
   width: 200px;
@@ -306,18 +316,43 @@ div.thumbnail > span {
   text-transform: uppercase;
   font-weight: 700;
 }
-
 .remove-image:hover {
   background: #c13b2a;
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
 }
-
 .remove-image:active {
   border: 0;
   transition: all .2s ease;
 }
 .hide {
   display: none;
+}
+.album-element {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  display: block;
+  float: left;
+  img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    display: inline;
+  }
+  span {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+  }
+}
+.btn-submit {
+  display: block;
+  float: left;
+}
+.modal-description {
+  float: left;
+  text-align: left;
 }
