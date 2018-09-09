@@ -79,7 +79,7 @@ li a{
   color: red;
 }
 
-/* modal */
+/* modal - image - feed*/
 .prev,
 .next {
   cursor: pointer;
@@ -355,4 +355,7 @@ div.thumbnail > span {
 .modal-description {
   float: left;
   text-align: left;
+}
+.description-hidden{
+  display: none;
 }
