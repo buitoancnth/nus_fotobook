@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
       $(div).insertBefore('.upload-album');
     });
 
-    $('#remove-image').not("span").on('click', function(){
+    $('#remove-image').on('click', function(){
       $('#photo_image').val("");
       $('.file-upload-content').hide();
       $('.image-upload-wrap').show();
