@@ -1,15 +1,23 @@
 class AlbumsController < ApplicationController
   layout 'layout_album_photo', only: :index
-  before_action :check_image, only: :create
+  before_action :load_album, only: [:edit, :show, :update, :destroy]
 
   def index
-    @albums = Album.page params[:page]
+    @albums = Album.album_public.order_by_created_at.page params[:page]
   end
 
   def show
   end
 
+  def edit
+  end
+
   def update
+    if @album.update_attributes(album_params)
+      redirect_to my_albums_path
+    else
+      render :edit
+    end
   end
 
   def new
@@ -19,27 +27,28 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new album_params
     if @album.save
-      @images.each do |image|
-        @album.photos.create!(image: image)
-      end
-      redirect_to albums_path
+      redirect_to my_albums_path
     else
       render :new
     end
   end
 
+  def destroy
+    @album.destroy
+    flash[:success] = "deleted success !"
+    redirect_to my_albums_path
+  end
+
   def my_albums
-    @albums = current_user.albums.page params[:page]
+    @albums = current_user.albums.includes(:photos).page params[:page]
   end
 
   private
   def album_params
-    params.require(:album).permit(:title, :description, :share_mode, :photos)
+    params.require(:album).permit(:title, :description, :share_mode, :images => [])
   end
 
-  def check_image
-    @images = params[:album][:images]
-    return if @images
-    redirect_to new_album_path
+  def load_album
+    @album = Album.find params[:id]
   end
 end

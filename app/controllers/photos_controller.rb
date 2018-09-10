@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   before_action :load_photo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @photos = Photo.photo_pucblic.order_by_created_at.page params[:page]
+    @photos = Photo.photo_public.order_by_created_at.page params[:page]
   end
 
   def show
@@ -14,12 +14,11 @@ class PhotosController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @photo.update_attributes(photo_params)
-      redirect_to my_photos_path(@photo)
+      redirect_to my_photos_path
     else
       render :edit
     end
@@ -38,6 +37,7 @@ class PhotosController < ApplicationController
     @photo.destroy
     redirect_to my_photos_path
   end
+
   def my_photos
     @photos = current_user.photos.order_by_created_at.page params[:page]
   end

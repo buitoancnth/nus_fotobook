@@ -1,23 +1,20 @@
 <div class="row">
-<% photos.each_with_index do |photo, index| %>
+<% photos.each do |photo| %>
   <div class="col-md-6 col-xs-12">
     <div class="post-image">
       <div class="pop"><%= image_tag(photo.image.url ,size: "200x200") %></div>
       <div class="post-data">
         <%= image_tag("image2.jpg", class: 'avatar') %>
-        <h5 class="post-name text-primary" ><%= User.find(photo.user_id).fullname %></h5>
+        <h5 class="post-name text-primary" ><%= photo.user.fullname %></h5>
         <div class="post-meta">
           <h5 class="post-title"><%= photo.title %></h5>
           <h6 class="post-description"><%= photo.description %></h6>
         </div>
         <span class="post-like glyphicon glyphicon-heart"></span>
         <span class="number-like">123</span>
-        <span class="post-date"><%= Time.zone.at(photo.created_at).strftime("%I:%M %p %m/%d/%Y") %></span>
+        <span class="post-date"><%= format_time(photo.created_at) %></span>
       </div>
   </div>
-  <% if index == 1 %>
-    </div><div class="row">
-  <% end %>
 </div>
 <% end %>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

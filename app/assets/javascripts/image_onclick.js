@@ -3,11 +3,25 @@ $(document).on('turbolinks:load', function(){
     var pathname = window.location.pathname;
 
     $('.post-image').on('click', function() {
-      // alert($(this).find('h5.post-title').text());
       $('.imagepreview').attr('src', $(this).find('img').attr('src'));
       $('h4.modal-title').text($(this).find('h5.post-title').text());
       $('h6.modal-description').text($(this).find('h6.post-description').text());
       $('#imagemodal').modal('show');
+      current_img = $(this).find('img.gallery-hide');
+      $('.prev').on('click', function(){
+        if (current_img.prev().length > 1) {
+          var imgPath = current_img.prev().attr('src');
+          current_img = current_img.prev();
+          $('.imagepreview').attr('src', imgPath);
+        }
+      });
+      $('.next').on('click', function(){
+        if (current_img.next().length > 1) {
+          var imgPath = current_img.next().attr('src');
+          current_img = current_img.next();
+          $('.imagepreview').attr('src', imgPath);
+        }
+      });
     });
 
     $('ul.nav>li>a[href="'+pathname+'"]').parent().addClass('active');
@@ -51,7 +65,7 @@ $(document).on('turbolinks:load', function(){
         };
         reader.readAsDataURL(file);
       }
-      $(div).insertBefore('.image-upload-wrap');
+      $(div).insertBefore('.upload-album');
     });
 
     $('#remove-image').on('click', function(){
@@ -60,16 +74,12 @@ $(document).on('turbolinks:load', function(){
       $('.image-upload-wrap').show();
     });
 
-    $('.thumbnail-photo').on('click', function() {
-      // alert($(this).find('h5.post-title').text());
+    $('.thumbnail-photo').on('click', function(e) {
+      e.stopPropagation();
       $('.imagepreview').attr('src', $(this).find('img').attr('src'));
       $('h4.modal-title').text($(this).find('.caption p').text());
       $('h6.modal-description').text($(this).find('h6.description-hidden').text());
       $('#imagemodal').modal('show');
-    });
-
-    $('.thumbnail-photo.glyphicon-edit').on('click', function(){
-      $('#imagemodal').modal('hide');
     });
   });
 });

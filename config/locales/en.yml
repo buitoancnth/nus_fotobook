@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  are_you_sure: "Are you sure ?"
+  edit_user_profile: "Edit User Profile"
+  login: "Login"
+  logout: "Logout"
   devise:
     sessions:
       new:
@@ -53,7 +57,11 @@ en:
       add_album: "Add Album"
     new:
       new_album: "New Album"
-      btn_create_album: "Create Album"
+      btn_album: "Create Album"
+    edit:
+      edit_album: "Update"
+      btn_album: "Save"
+      btn_album_delete: "Delete"
   photos:
     my_photos:
       add_photo: "Add Photo"
@@ -63,7 +71,6 @@ en:
     edit:
       title_photo: "Update"
       btn_photo: "Save"
-      btn_photo_delete: "delete"
-      are_you_sure: "are you sure ?"
+      btn_photo_delete: "Delete"
 
 
