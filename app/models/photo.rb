@@ -6,7 +6,7 @@ class Photo < ApplicationRecord
   validates :title, length: { maximum: 140 }, presence: true, if: :check_album_id?
   validates :description, length: { maximum: 300 }, presence: true, if: :check_album_id?
   scope :order_by_created_at, -> { order(created_at: :desc) }
-  scope :photo_public, -> { where(share_mode: true) }
+  scope :shared, -> { where(share_mode: true) }
 
   def check_album_id?
     album_id.nil?

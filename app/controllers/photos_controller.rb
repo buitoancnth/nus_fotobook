@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   before_action :load_photo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @photos = Photo.photo_public.order_by_created_at.page params[:page]
+    @photos = Photo.shared.order_by_created_at.page params[:page]
   end
 
   def show

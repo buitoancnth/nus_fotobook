@@ -1,0 +1,10 @@
+<h3 class="text-primary"><%= t('.edit_album') %></h3>
+<hr>
+<%= form_for @album, html: { multipart: true } do |f| %>
+  <%= render 'shared/error_messages', object: @album %>
+  <%= render  'form', f: f %>
+  <%= f.submit t('.btn_album'), class: 'btn btn-success'%>
+  <%= link_to album_path(@album), method: :delete, data: {confirm: t('are_you_sure')} do %>
+    <button type="button" class="btn btn-danger"><%= t('.btn_album_delete') %></button>
+  <% end %>
+<% end %>

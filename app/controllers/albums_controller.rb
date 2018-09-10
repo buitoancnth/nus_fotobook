@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
   before_action :load_album, only: [:edit, :show, :update, :destroy]
 
   def index
-    @albums = Album.album_public.order_by_created_at.page params[:page]
+    @albums = Album.shared.order_by_created_at.page params[:page]
   end
 
   def show
@@ -40,7 +40,7 @@ class AlbumsController < ApplicationController
   end
 
   def my_albums
-    @albums = current_user.albums.includes(:photos).page params[:page]
+    @albums = current_user.albums.order_by_created_at.includes(:photos).page params[:page]
   end
 
   private
