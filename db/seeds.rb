@@ -18,17 +18,5 @@ User.create!(first_name: "Bui",
   email = "nus#{n}@technology.com"
   password = "123456"
   user = User.create!(first_name: first_name, last_name: last_name,email: email, password: password, password_confirmation: password)
-  # unless user.nil?
-  #   5.times do |n|
-  #     title = Faker::Job.title
-  #     description = Faker::Name.name
-  #     user.photos.create!(title: title, description: description, share_mode: true)
-  #   end
-  #   5.times do |n|
-  #     title = Faker::Job.title
-  #     description = Faker::Name.name
-  #     album = user.albums.create!(title: title, description: description, share_mode: true)
-  #   end
-  # end
 end
 

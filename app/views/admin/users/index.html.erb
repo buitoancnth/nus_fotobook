@@ -9,7 +9,7 @@
       <th><%= t('.action') %></th>
     </tr>
   </thead>
-  <%= render @users %>
+  <%= render 'user',users: @users %>
 </table>
 <div class="text-center">
   <%= paginate @users %>
