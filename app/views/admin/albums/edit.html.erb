@@ -1,0 +1,35 @@
+<h3 class="text-primary"><%= t('.edit_album') %></h3>
+<hr>
+<%= form_for @album, url: admin_album_path, html: { multipart: true } do |f| %>
+  <%= render 'shared/error_messages', object: @album %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :share_mode, 'Share mode' %>
+    <%= f.select :share_mode, [['Public', true], ['Private', false]], {}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.file_field :images, multiple: true, class: 'hide' %>
+  </div>
+
+  <div class="upload-album">
+    <div class="image-upload-wrap-album">
+      <input class="file-upload-input" id="image-album" accept="image/*" />
+      <span class="glyphicon glyphicon-plus"></span>
+    </div>
+  </div>
+
+  <%= f.submit t('.btn_album'), class: 'btn btn-success'%>
+  <%= link_to album_path(@album), method: :delete, data: {confirm: t('are_you_sure')} do %>
+    <button type="button" class="btn btn-danger"><%= t('.btn_album_delete') %></button>
+  <% end %>
+<% end %>

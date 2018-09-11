@@ -11,4 +11,12 @@ class Photo < ApplicationRecord
   def no_album?
     album_id.nil?
   end
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

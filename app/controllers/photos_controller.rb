@@ -46,6 +46,10 @@ class PhotosController < ApplicationController
     @photos = current_user.photos.order_by_created_at.page params[:page]
   end
 
+  def search
+    @photos = Photo.search(params[:search]).order(sort_column + " " + sort_direction).page params[:page]
+  end
+
   private
   def photo_params
     params.require(:photo).permit(:title, :description, :image, :share_mode)

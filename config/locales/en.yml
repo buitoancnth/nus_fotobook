@@ -31,13 +31,27 @@
 
 en:
   are_you_sure: "Are you sure ?"
-  edit_user_profile: "Edit User Profile"
-  login: "Login"
-  logout: "Logout"
+  layouts:
+    admin_left_body:
+      manage_photo: "Manage Photos"
+      manage_album: "Manage Albums"
+      manage_user: "Manage Users"
+    left_body:
+      feed: "Feeds"
+      my_photo: "My Photos"
+      my_album: "My Albums"
+    header:
+      edit_user_profile: "Edit User Profile"
+      title_user: "FotoBook"
+      title_admin: "FotoBook Admin"
+      login: "Login"
+      logout: "Logout"
   messages:
     delete_success: "deleted success !"
     create_success: "created success !"
     update_success: "updated success !"
+    inactive: "Sorry, this account has been deactivated"
+    not_admin: "Sorry. this account not Admin"
   devise:
     sessions:
       new:
@@ -76,5 +90,35 @@ en:
       title_photo: "Update"
       btn_photo: "Save"
       btn_photo_delete: "Delete"
-
-
+  admin:
+    users:
+      index:
+        first_name: "First Name"
+        last_name: "Last Name"
+        email: "Email"
+        last_login: "Last Login"
+        action: "Action"
+        role: "role"
+        admin: "Admin"
+        user: "User"
+      user:
+        edit: "Edit"
+        delete: "Delete"
+      edit:
+        edit_user: "Edit User"
+        btn_user: "Update"
+    photos:
+      edit:
+        title_photo: "Update"
+        btn_photo: "Save"
+        btn_photo_delete: "Delete"
+      index:
+        add_photo: "Add Photo"
+    albums:
+      new:
+        new_album: "New Album"
+        btn_album: "Create Album"
+      edit:
+        edit_album: "Update"
+        btn_album: "Save"
+        btn_album_delete: "Delete"
