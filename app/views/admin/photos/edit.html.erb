@@ -36,7 +36,7 @@
   </div>
 
   <%= f.submit t('.btn_photo'), class: 'btn btn-success'%>
-  <%= link_to photo_path(@photo), method: :delete, data: {confirm: t('are_you_sure')} do %>
+  <%= link_to admin_photo_path(@photo), method: :delete, data: {confirm: t('are_you_sure')} do %>
     <button type="button" class="btn btn-danger"><%= t('.btn_photo_delete') %></button>
   <% end %>
 <% end %>
