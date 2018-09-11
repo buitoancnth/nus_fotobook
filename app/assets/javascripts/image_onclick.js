@@ -75,7 +75,6 @@ $(document).on('turbolinks:load', function(){
     });
 
     $('.thumbnail-photo').on('click', function(e) {
-      console.log('vao day');
       $('.imagepreview').attr('src', $(this).find('img').attr('src'));
       $('h4.modal-title').text($(this).find('.caption p').text());
       $('h6.modal-description').text($(this).find('h6.description-hidden').text());

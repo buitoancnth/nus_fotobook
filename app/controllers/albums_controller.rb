@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   layout 'layout_album_photo', only: :index
   before_action :load_album, only: [:edit, :show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @albums = Album.shared.order_by_created_at.page params[:page]
@@ -14,6 +15,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update_attributes(album_params)
+      flash[:success] = t('messages.update_success')
       redirect_to my_albums_path
     else
       render :edit
@@ -27,6 +29,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new album_params
     if @album.save
+      flash[:success] = t('messages.create_success')
       redirect_to my_albums_path
     else
       render :new
@@ -35,7 +38,7 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album.destroy
-    flash[:success] = "deleted success !"
+    flash[:success] = t('messages.delete_success')
     redirect_to my_albums_path
   end
 

@@ -34,6 +34,10 @@ en:
   edit_user_profile: "Edit User Profile"
   login: "Login"
   logout: "Logout"
+  messages:
+    delete_success: "deleted success !"
+    create_success: "created success !"
+    update_success: "updated success !"
   devise:
     sessions:
       new:
