@@ -1,34 +1,37 @@
-<section class="row">
+<div class="row">
 <% photos.each do |photo| %>
-  <div class="col-md-6">
+  <div class="col-md-6 col-xs-12">
     <div class="post-image">
-      <div class="pop"><%= image_tag("image2.jpg",size: "200x200") %></div>
+      <div class="pop"><%= image_tag(photo.image.url ,size: "200x200") %></div>
       <div class="post-data">
         <%= image_tag("image2.jpg", class: 'avatar') %>
-        <a href="#" class="post-catagory"><%= User.find(photo.user_id).fullname %></a>
+        <h5 class="post-name text-primary" ><%= photo.user.fullname %></h5>
         <div class="post-meta">
-          <a href="#" class="post-title">
-              <h5><%= photo.title %></h5>
-          </a>
-          <a href="#" class="post-descripton">
-              <h6><%= photo.description %></h6>
-          </a>
-          <p class="post-like glyphicon glyphicon-heart"><span></span><span>123</span></p>
-          <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
+          <h5 class="post-title"><%= photo.title %></h5>
+          <h6 class="post-description"><%= photo.description %></h6>
         </div>
+        <span class="post-like glyphicon glyphicon-heart"></span>
+        <span class="number-like">123</span>
+        <span class="post-date"><%= format_time(photo.created_at) %></span>
       </div>
-    </div>
   </div>
+</div>
 <% end %>
-</section>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only"></span>
+        </button>
+        <h4 class="modal-title" id="modal-title"></h4>
+      </div>
       <div class="modal-body">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <img src="" class="imagepreview">
+      </div>
+      <div class="modal-footer">
+        <h6 class="modal-description"></h6>
       </div>
     </div>
   </div>

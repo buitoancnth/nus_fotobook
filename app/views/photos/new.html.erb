@@ -1,0 +1,7 @@
+<h3 class="text-primary"><%= t('.title_photo') %></h3>
+<hr>
+<%= form_for @photo do |f| %>
+  <%= render 'shared/error_messages', object: @photo %>
+  <%= render 'form', f: f%>
+  <%= f.submit t('.btn_photo'), class: 'btn btn-primary'%>
+<% end %>

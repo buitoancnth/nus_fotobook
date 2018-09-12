@@ -7,6 +7,12 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container main-feed">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <%= message %>
+      </div>
+    <% end %>
       <% if user_signed_in? %>
         <div class="row">
           <%= render 'layouts/left_body' %>
@@ -17,7 +23,7 @@
       <% else %>
         <%= yield %>
       <% end %>
-    <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
