@@ -31,7 +31,7 @@
 
 en:
   are_you_sure: "Are you sure ?"
-  titel_app: "FotoBook"
+  title_app: "FotoBook"
   inactive: "Sorry, this account has been deactivated"
   layouts:
     admin_left_body:

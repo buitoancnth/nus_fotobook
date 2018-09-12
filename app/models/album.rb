@@ -10,9 +10,10 @@ class Album < ApplicationRecord
   validates :images, presence: true
   after_create :create_images
   after_update :update_images
+  DISPLAY_IMAGE_IN_ALBUMS = 3
 
-  def image_in_album
-    self.photos.first(3)
+  def top_images
+    self.photos.first(DISPLAY_IMAGE_IN_ALBUMS)
   end
 
   private

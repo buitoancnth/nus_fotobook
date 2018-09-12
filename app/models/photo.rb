@@ -7,8 +7,8 @@ class Photo < ApplicationRecord
   validates :description, length: { maximum: 300 }, presence: true, if: :no_album?
   scope :order_by_created_at, -> { order(created_at: :desc) }
   scope :shared, -> { where(share_mode: true) }
-  scope :image_not_in_album, -> { where("user_id IS NOT NULL") }
-  scope :search, -> word { where("title LIKE '%#{word}%'") }
+  scope :image_not_in_album, -> { where("album_id IS NULL") }
+  scope :search, -> word { where('title LIKE ?', "%#{word}%") }
 
   def no_album?
     album_id.nil?
