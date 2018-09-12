@@ -4,7 +4,7 @@ class Admin::AlbumsController < ApplicationController
   before_action :load_album, only: [:edit, :update, :destroy]
 
   def index
-    @albums = Album.order_by_created_at.page params[:page]
+    @albums = Album.order_by_created_at.includes(:photos).page params[:page]
   end
 
   def update

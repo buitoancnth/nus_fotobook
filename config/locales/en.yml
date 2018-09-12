@@ -31,6 +31,8 @@
 
 en:
   are_you_sure: "Are you sure ?"
+  titel_app: "FotoBook"
+  inactive: "Sorry, this account has been deactivated"
   layouts:
     admin_left_body:
       manage_photo: "Manage Photos"
@@ -46,11 +48,15 @@ en:
       title_admin: "FotoBook Admin"
       login: "Login"
       logout: "Logout"
+      photo_album: "Photos/Albums"
+      search: "Search"
+    layout_album_photo:
+      albums: "Albums"
+      photos: "Photos"
   messages:
     delete_success: "deleted success !"
     create_success: "created success !"
     update_success: "updated success !"
-    inactive: "Sorry, this account has been deactivated"
     not_admin: "Sorry. this account not Admin"
   devise:
     sessions:

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NusFotobook</title>
+    <title><%= t('titel_app') %></title>
     <%= render 'layouts/head_include' %>
   </head>
   <body>
@@ -15,14 +15,12 @@
     <% end %>
       <div class="row">
         <%= render 'layouts/left_body' %>
-        <div class="col-sm-10 col-xs-12">
-          <div class="photo_album">
-            <ul class="nav nav-pills center-pills" role="tablist" >
-              <li><%= link_to 'Photos', photos_path %></li>
-              <li><%= link_to 'Albums', albums_path %></li>
-            </ul>
-            <%= yield %>
-          </div>
+        <div class="col-sm-10 col-xs-12 photo_album">
+          <ul class="nav nav-pills center-pills" role="tablist" >
+            <li><%= link_to t('.photos'), photos_path %></li>
+            <li><%= link_to t('.albums'), albums_path %></li>
+          </ul>
+          <%= yield %>
         </div>
         <%= render 'layouts/footer' %>
       </div>

@@ -4,7 +4,11 @@ class PhotosController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @photos = Photo.shared.order_by_created_at.page params[:page]
+    unless params[:search].blank?
+      @photos = Photo.shared.image_not_in_album.search(params[:search]).page(params[:page]).per(4)
+    else
+      @photos = Photo.shared.image_not_in_album.order_by_created_at.page(params[:page]).per(4)
+    end
   end
 
   def show
@@ -44,10 +48,6 @@ class PhotosController < ApplicationController
 
   def my_photos
     @photos = current_user.photos.order_by_created_at.page params[:page]
-  end
-
-  def search
-    @photos = Photo.search(params[:search]).order(sort_column + " " + sort_direction).page params[:page]
   end
 
   private

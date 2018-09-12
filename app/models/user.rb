@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :albums, dependent: :destroy
   scope :order_by_created_at, -> { order(created_at: :desc) }
-  has_attached_file :avatar, styles: { thumb: ["100x100#", :png] }
+  has_attached_file :avatar, styles: { thumb: ["100x100#", :png] }, default_url: "missing.png"
   do_not_validate_attachment_file_type :avatar
 
   def fullname
@@ -18,7 +18,6 @@ class User < ApplicationRecord
   end
 
   def inactive_message
-    is_active? ? super : "Sorry, this account has been deactivated."
+    is_active? ? super : I18n.t('inactive')
   end
-
 end

@@ -12,7 +12,7 @@ User.create!(first_name: "Bui",
              password_confirmation: "123456",
              is_admin: true)
 
-2.times do |n|
+1.times do |n|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "nus#{n}@technology.com"

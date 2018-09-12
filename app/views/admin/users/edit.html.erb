@@ -13,11 +13,7 @@
     </div>
     <div class="file-upload-content">
       <input type="button" class="btn btn-default" id="change-avatar" value="Change" />
-      <% if @user.avatar.present? %>
-        <%= image_tag @user.avatar.url(:thumb), class: "file-upload-image", id: "avatar-edit", size: "150x150" %>
-      <% else %>
-        <img class="file-upload-image" src="#" id="avatar-edit" height="150px" width="150px" />
-      <% end %>
+      <%= image_tag @user.avatar.url(:thumb), class: "file-upload-image", id: "avatar-edit", size: "150x150" %>
     </div>
     <div class="form-group">
       <%= f.label :first_name %>

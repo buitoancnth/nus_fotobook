@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  before_action :active_user
 
   protected
   def after_sign_in_path_for(resource)
@@ -17,15 +16,6 @@ class ApplicationController < ActionController::Base
     unless current_user.is_admin?
       flash[:danger] = t('messages.not_admin')
       redirect_to root_path
-    end
-  end
-
-  def active_user
-    if current_user
-      unless current_user.is_active?
-        flash[:danger] = t('messages.inactive')
-        redirect_to root_path
-      end
     end
   end
 

@@ -3,15 +3,8 @@
   <% @albums.each_with_index do |album| %>
     <div class="col-lg-3 col-md-4 col-xs-12">
       <div class="thumbnail">
-        <% if album.photos.present? %>
-          <% album.photos.order_by_created_at.each_with_index do |image, index| %>
-            <% break if index == 3 %>
-            <%= image_tag(image.image.url(:thumb), class: 'img-responsive', id: "photo#{index}") %>
-          <% end %>
-        <% else %>
-          <%= image_tag("image2.jpg", class: 'img-responsive', id: 'photo0') %>
-          <%= image_tag("image2.jpg", class: 'img-responsive', id: 'photo1') %>
-          <%= image_tag("image2.jpg", class: 'img-responsive', id: 'photo2') %>
+        <% album.image_in_album.each_with_index do |image, index| %>
+          <%= image_tag(image.image.url(:thumb), class: 'img-responsive', id: "photo#{index}") %>
         <% end %>
         <div class="caption">
           <p><%= album.title %></p>
