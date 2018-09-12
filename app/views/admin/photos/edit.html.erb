@@ -1,0 +1,42 @@
+<h3 class="text-primary"><%= t('.title_photo') %></h3>
+<hr>
+<%= form_for @photo, url: admin_photo_path do |f| %>
+  <%= render 'shared/error_messages', object: @photo %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :share_mode, 'Share mode' %><br>
+    <%= f.select :share_mode, [['Public', true], ['Private', false]],{} , {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.file_field :image, class: 'hide' %>
+  </div>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" id="image-photo" accept="image/*" />
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
+
+  <div class="file-upload-content">
+    <% if @photo.image.present? %>
+      <%= image_tag @photo.image.url, class: "file-upload-image", id: "photo-edit", size: "150x150" %>
+    <% else %>
+      <img class="file-upload-image" src="#" id="photo-edit" height="150px" width="150px" />
+    <% end %>
+    <span class=" glyphicon glyphicon-remove delete-image" id="remove-image" ></span>
+  </div>
+
+  <%= f.submit t('.btn_photo'), class: 'btn btn-success'%>
+  <%= link_to admin_photo_path(@photo), method: :delete, data: {confirm: t('are_you_sure')} do %>
+    <button type="button" class="btn btn-danger"><%= t('.btn_photo_delete') %></button>
+  <% end %>
+<% end %>

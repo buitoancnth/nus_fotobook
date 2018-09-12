@@ -9,6 +9,7 @@ class Album < ApplicationRecord
   validates :images, presence: true
   after_create :create_images
   after_update :update_images
+  MAX_IMAGE_SHOW = 3
 
   private
   def create_images

@@ -1,22 +1,23 @@
+<br>
 <div class="row">
-<% photos.each do |photo| %>
-  <div class="col-md-6 col-xs-12">
-    <div class="post-image">
-      <div class="pop"><%= image_tag(photo.image.url ,size: "200x200") %></div>
-      <div class="post-data">
-        <%= image_tag( photo.user.avatar.url, class: 'avatar') %>
-        <h5 class="post-name text-primary" ><%= photo.user.fullname %></h5>
-        <div class="post-meta">
-          <h5 class="post-title"><%= photo.title %></h5>
-          <h6 class="post-description"><%= photo.description %></h6>
+  <% @photos.each do |photo, index| %>
+    <div class="col-lg-3 col-md-4 col-xs-12">
+      <div class="thumbnail thumbnail-photo">
+        <%= image_tag(photo.image.url(:thumb), class: "img-responsive") %>
+        <div class="caption">
+          <p><%= photo.title %></p>
+          <%= link_to edit_admin_photo_path(photo) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <h6 class="description-hidden"><%= photo.description %></h6>
         </div>
-        <span class="post-like glyphicon glyphicon-heart"></span>
-        <span class="number-like">123</span>
-        <span class="post-date"><%= format_time(photo.created_at) %></span>
+        <% unless photo.share_mode %>
+          <span class = "fa fa-lock"></span>
+        <% end %>
       </div>
-  </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

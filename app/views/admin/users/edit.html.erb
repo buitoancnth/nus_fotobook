@@ -1,0 +1,41 @@
+<h3 class="text-primary"><%= t('.edit_user') %></h3>
+<hr>
+<div class="row">
+  <div class="col-sm-4 col-xs-12 col-sm-offset-4">
+  <%= form_for @user, url: admin_user_path do |f| %>
+    <%= render 'shared/error_messages', object: @user %>
+    <div class="form-group">
+      <%= f.file_field :avatar, class: "hide" %>
+    </div>
+    <div class="image-upload-wrap">
+      <input class="file-upload-input" id="select-avatar" accept="image/*" />
+      <span class="glyphicon glyphicon-plus"></span>
+    </div>
+    <div class="file-upload-content">
+      <input type="button" class="btn btn-default" id="change-avatar" value="Change" />
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar.url(:thumb), class: "file-upload-image", id: "avatar-edit", size: "150x150" %>
+      <% else %>
+        <img class="file-upload-image" src="#" id="avatar-edit" height="150px" width="150px" />
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, autocomplete: "on", autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, autocomplete: "on", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "on", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :is_active, "Active ?" %>
+      <%= f.check_box :is_active %>
+    </div>
+    <%= f.submit t('.btn_user'), class: 'btn btn-success'%>
+  <% end %>
+  </div>
+</div>
