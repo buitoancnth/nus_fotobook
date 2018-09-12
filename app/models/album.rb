@@ -16,6 +16,14 @@ class Album < ApplicationRecord
     self.photos.first(DISPLAY_IMAGE_IN_ALBUMS)
   end
 
+  def self.search word
+    unless word.blank?
+      where('title LIKE ?', "%#{word}%")
+    else
+      all
+    end
+  end
+
   private
   def create_images
     @images.each do |image|

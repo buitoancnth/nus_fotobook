@@ -24,7 +24,14 @@ $(document).on('turbolinks:load', function(){
       });
     });
 
-    $('ul.nav>li>a[href="'+pathname+'"]').parent().addClass('active');
+    if(pathname == "/") {
+      $('ul.nav > li > a[href="/photos"]').parent().addClass('active');
+    }
+    if ( pathname == "/albums") {
+      $('ul.list-menu > li > a[href="/photos"]').parent().addClass('active');
+    }
+
+    $('ul.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
 
     if ($('img#photo-edit, img#avatar-edit').attr('src')!='#'){
       $('.file-upload-content').show();

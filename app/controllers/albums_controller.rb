@@ -4,11 +4,7 @@ class AlbumsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    unless params[:search].blank?
-      @albums = Album.shared.search(params[:search]).includes(:photos).page(params[:page]).per(4)
-    else
-      @albums = Album.shared.order_by_created_at.includes(:photos).page(params[:page]).per(4)
-    end
+    @albums = Album.shared.order_by_created_at.includes(:photos).search(params[:search]).page(params[:page]).per(4)
   end
 
   def show
@@ -51,6 +47,10 @@ class AlbumsController < ApplicationController
   end
 
   private
+  def index_albums
+    @albums = Album.shared.order_by_created_at.includes(:photos).page(params[:page]).per(4)
+  end
+
   def album_params
     params.require(:album).permit(:title, :description, :share_mode, :images => [])
   end

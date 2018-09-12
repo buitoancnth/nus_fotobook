@@ -13,6 +13,14 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def self.search word
+    unless word.blank?
+      where('title LIKE ?', "%#{word}%")
+    else
+      all
+    end
+  end
+
   def active_for_authentication?
     self.is_active?
   end
