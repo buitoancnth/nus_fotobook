@@ -19,7 +19,7 @@ class Album < ApplicationRecord
     unless word.blank?
       where('title LIKE ?', "%#{word}%")
     else
-      all
+      where(nil)
     end
   end
 

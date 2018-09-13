@@ -4,7 +4,7 @@ class Admin::PhotosController < ApplicationController
   before_action :load_photo, only: [:edit, :update, :destroy]
 
   def index
-    @photos = Photo.image_not_in_album.order_by_created_at.page params[:page]
+    @photos = Photo.not_in_album.order_by_created_at.page params[:page]
   end
 
   def edit
