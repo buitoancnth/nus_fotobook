@@ -1,0 +1,18 @@
+.add_photo_album
+  = link_to new_album_path do
+    button.btn.btn-primary type="button" = t('.add_album')
+hr/
+.row
+  - @albums.each_with_index do |album|
+    .col-lg-3.col-md-4.col-xs-12
+      .thumbnail
+        - album.top_images.each_with_index do |image, index|
+          = image_tag(image.image.url(:thumb), class: 'img-responsive', id: "photo#{index}")
+        .caption
+          p = album.title
+          = link_to edit_album_path(album) do
+            span.glyphicon.glyphicon-edit
+        - unless album.share_mode
+          span.fa.fa-lock
+.paginate
+  = paginate @albums

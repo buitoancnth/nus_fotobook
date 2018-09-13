@@ -1,0 +1,35 @@
+.row
+  -albums.each do |album|
+    .col-md-6
+      .post-image
+        - if album.photos.present?
+          .pop
+            = image_tag album.photos.first.image.url, size: "200x200"
+          - album.photos.each do |img|
+            = image_tag img.image.url, size: "200x200", class: 'gallery-hide'
+        - else
+          .pop
+            = image_tag("image2.jpg",size: "200x200")
+        .post-data
+          = image_tag(album.user.avatar.url(:thumb), class: 'avatar')
+          h5.post-name.text-primary = album.user.fullname
+          .post-meta
+            h5.post-title = album.title
+            h6.post-description = album.description
+          span.post-like.glyphicon.glyphicon-heart
+          span.number-like
+            | 123
+          span.post-date = format_time(album.created_at)
+.modal.fade#imagemodal tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal"
+          span aria-hidden="true">&times;
+        h4.modal-title" id="modal-title"
+      .modal-body
+        a.prev &#10094;
+        a.next &#10095;
+        img.imagepreview src=""
+      .modal-footer
+        h6.modal-description

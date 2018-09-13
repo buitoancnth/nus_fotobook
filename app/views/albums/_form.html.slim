@@ -1,0 +1,15 @@
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+.form-group
+  = f.label :share_mode, 'Share mode'
+  = f.select :share_mode, [['Public', true], ['Private', false]], {}, {class: 'form-control'}
+.form-group
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
+.form-group
+  = f.file_field :images, multiple: true, class: 'hide'
+.upload-album
+  .image-upload-wrap-album
+    input.file-upload-input id="image-album" accept="image/*"
+    span.glyphicon.glyphicon-plus

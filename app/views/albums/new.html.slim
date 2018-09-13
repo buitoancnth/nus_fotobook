@@ -1,0 +1,6 @@
+h3.text-primary = t('.new_album')
+hr/
+= form_for @album, html: { multipart: true } do |f|
+  = render 'shared/error_messages', object: @album
+  = render  'form', f: f
+  = f.submit t('.btn_album'), class: 'btn btn-primary form-control'

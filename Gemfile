@@ -24,6 +24,7 @@ gem 'paperclip'
 gem 'pg'
 gem 'jquery-fileupload-rails'
 gem 'font-awesome-rails'
+gem 'slim'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
