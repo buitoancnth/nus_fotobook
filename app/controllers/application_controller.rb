@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def admin_user
+  def check_admin_user
     unless current_user.is_admin?
       flash[:danger] = t('messages.not_admin')
       redirect_to root_path

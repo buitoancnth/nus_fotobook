@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_attached_file :avatar, styles: { thumb: ["100x100#", :png] }, default_url: "missing.png"
   do_not_validate_attachment_file_type :avatar
 
-  def fullname
+  def full_name
     "#{first_name} #{last_name}"
   end
 

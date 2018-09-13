@@ -1,6 +1,6 @@
 class Admin::PhotosController < ApplicationController
   layout "admin_layout"
-  before_action :check_admin_user
+  before_action :admin_user
   before_action :load_photo, only: [:edit, :update, :destroy]
 
   def index
