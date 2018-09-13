@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @photos = Photo.shared.order_by_created_at.page params[:page]
+    @photos = Photo.shared.image_not_in_album.order_by_created_at.search(params[:search]).page(params[:page]).per(4)
   end
 
   def show

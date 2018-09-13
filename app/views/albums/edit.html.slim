@@ -1,0 +1,8 @@
+h3.text-primary = t('.edit_album')
+hr/
+= form_for @album, html: { multipart: true } do |f|
+  = render 'shared/error_messages', object: @album
+  = render  'form', f: f
+  = f.submit t('.btn_album'), class: 'btn btn-success'
+  = link_to album_path(@album), method: :delete, data: {confirm: t('are_you_sure')} do
+    button.btn.btn-danger type="button" = t('.btn_album_delete')

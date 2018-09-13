@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     resources :photos, only: :index
     resources :albums, only: :index
   end
+
+  namespace :admin do
+    root to: "users#index"
+    resources :users
+    resources :photos
+    resources :albums
+  end
 end
