@@ -1,0 +1,16 @@
+<table class= "table table-condensed">
+  <thead>
+    <tr>
+      <th><%= t('.first_name') %></th>
+      <th><%= t('.last_name') %></th>
+      <th><%= t('.email') %></th>
+      <th><%= t('.last_login') %></th>
+      <th><%= t('.role') %></th>
+      <th><%= t('.action') %></th>
+    </tr>
+  </thead>
+  <%= render 'users',users: @users %>
+</table>
+<div class="text-center">
+  <%= paginate @users %>
+</div>

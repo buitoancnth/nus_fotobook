@@ -5,7 +5,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :photos, dependent: :destroy
   has_many :albums, dependent: :destroy
-  def fullname
+  scope :order_by_created_at, -> { order(created_at: :desc) }
+  has_attached_file :avatar, styles: { thumb: ["100x100#", :png] }, default_url: "missing.png"
+  do_not_validate_attachment_file_type :avatar
+
+  def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def active_for_authentication?
+    self.is_active?
+  end
+
+  def inactive_message
+    is_active? ? super : I18n.t('inactive')
   end
 end

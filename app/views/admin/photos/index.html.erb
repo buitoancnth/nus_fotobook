@@ -1,9 +1,4 @@
-<div class="add_photo_album">
-  <%= link_to new_photo_path do %>
-    <button type="button" class="btn btn-primary"><%= t('.add_photo') %></button>
-  <% end %>
-</div>
-<hr>
+<br>
 <div class="row">
   <% @photos.each do |photo, index| %>
     <div class="col-lg-3 col-md-4 col-xs-12">
@@ -11,7 +6,7 @@
         <%= image_tag(photo.image.url(:thumb), class: "img-responsive") %>
         <div class="caption">
           <p><%= photo.title %></p>
-          <%= link_to edit_photo_path(photo) do %>
+          <%= link_to edit_admin_photo_path(photo) do %>
             <span class="glyphicon glyphicon-edit"></span>
           <% end %>
           <h6 class="description-hidden"><%= photo.description %></h6>

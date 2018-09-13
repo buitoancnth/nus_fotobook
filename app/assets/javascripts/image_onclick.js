@@ -24,17 +24,24 @@ $(document).on('turbolinks:load', function(){
       });
     });
 
-    $('ul.nav>li>a[href="'+pathname+'"]').parent().addClass('active');
+    if(pathname == "/") {
+      $('ul.nav > li > a[href="/photos"]').parent().addClass('active');
+    }
+    if ( pathname == "/albums") {
+      $('ul.list-menu > li > a[href="/photos"]').parent().addClass('active');
+    }
 
-    if ($('img#photo-edit').attr('src')!='#'){
+    $('ul.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+
+    if ($('img#photo-edit, img#avatar-edit').attr('src')!='#'){
       $('.file-upload-content').show();
       $('.image-upload-wrap').hide();
     };
 
-    $('#image-photo').on('click', function () {
-      $('#photo_image').trigger('click');
+    $('#image-photo, #change-avatar, #select-avatar').on('click', function () {
+      $('#photo_image, #user_avatar').trigger('click');
     });
-    $('#photo_image').on('change', function (e) {
+    $('#photo_image, #user_avatar').on('change', function (e) {
       for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
         var file = e.originalEvent.srcElement.files[i];
         var reader = new FileReader();

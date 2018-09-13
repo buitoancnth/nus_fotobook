@@ -9,6 +9,19 @@ class Album < ApplicationRecord
   validates :images, presence: true
   after_create :create_images
   after_update :update_images
+  DISPLAY_IMAGE_IN_ALBUMS = 3
+
+  def top_images
+    self.photos.first(DISPLAY_IMAGE_IN_ALBUMS)
+  end
+
+  def self.search word
+    unless word.blank?
+      where('title LIKE ?', "%#{word}%")
+    else
+      where(nil)
+    end
+  end
 
   private
   def create_images
@@ -19,8 +32,6 @@ class Album < ApplicationRecord
 
   def update_images
     self.photos.delete_all
-    @images.each do |image|
-      self.photos.create!(image: image)
-    end
+    create_images
   end
 end
