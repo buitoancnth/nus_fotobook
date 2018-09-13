@@ -1,6 +1,6 @@
 class Admin::AlbumsController < ApplicationController
   layout "admin_layout"
-  before_action :admin_user
+  before_action :check_admin_user
   before_action :load_album, only: [:edit, :update, :destroy]
 
   def index

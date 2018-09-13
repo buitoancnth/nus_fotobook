@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
   layout 'layout_album_photo', only: :index
+  RECORD_PER_PAGE = 4
   before_action :load_album, only: [:edit, :show, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @albums = Album.shared.order_by_created_at.includes(:photos).search(params[:search]).page(params[:page]).per(4)
+    @albums = Album.shared.order_by_created_at.includes(:photos).search(params[:search]).page(params[:page]).per(RECORD_PER_PAGE)
   end
 
   def show
